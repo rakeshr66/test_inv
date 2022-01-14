@@ -1,0 +1,18 @@
+{% load  static %}
+<link rel="stylesheet" type="text/css" href="{% static "bower_components/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" %}">
+
+
+<div class="form-group">
+<label class="control-label" for="inputSuccess"><i class="fa {{ widget.attrs.labelicon|default:"fa-cube" }}"></i> {{ widget.attrs.label }}</label>
+
+    <div class="input-group date">
+      <div class="input-group-addon">
+        <i class="fa fa-calendar"></i>
+      </div>
+      <input name="{{ widget.name }}"
+              {% if widget.value != None %}
+                value="{{ widget.value }}"
+              {% endif %} type="{{ widget.type }}" class="form-control pull-right" id="{{ widget.attrs.id|default:"datetimepicker" }}" {% include "django/forms/widgets/attrs.html" %}>
+    </div>
+    <!-- /.input group -->
+</div>

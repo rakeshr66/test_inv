@@ -1,0 +1,45 @@
+{% extends 'blog_temp/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    <div class="main-body section-gap">
+    <div class="container box_1170">
+    <div class="row">
+
+        <div class="col-lg-12 ">
+            <nav class="navbar navbar-light bg-light justify-content-between">
+                <a class="navbar-brand">Blog's</a>
+                <form class="form-inline">
+                    {% for filteritem in filter.form %}
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="{{ filteritem.name }}" id="id_title__icontains">
+                    {% endfor %}
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </nav>
+
+    </div>
+         <!--/.Navbar-->
+    </div>
+
+        <div class="col-lg-12 post-list">
+        <!-- Start Post Area -->
+        <section class="post-area">
+        <div class="row">
+
+            <!-- end pagination-->
+            </div>
+            </section>
+            <!-- Start Post Area -->
+            </div>
+
+
+
+{% endblock %}
+{% block sidebar %}
+
+    </div>
+    </div>
+    </div>
+{% endblock %}

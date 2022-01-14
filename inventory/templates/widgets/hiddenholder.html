@@ -1,0 +1,11 @@
+<div class="form-group">
+    <input class="form-control" type="hidden"
+          name="{{ widget.name }}" id="{{ widget.attrs.id|default:"my_hidden_input" }}"
+	  {% if widget.attrs.value != None %}
+	    value="{{ widget.attrs.value }}"
+	  {% endif %}
+	  {% include "django/forms/widgets/attrs.html" %}
+
+    />
+</div>
+

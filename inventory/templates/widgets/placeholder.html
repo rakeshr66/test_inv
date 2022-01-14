@@ -1,0 +1,14 @@
+<div class="form-group">
+    <label class="control-label" for="{{ widget.name }}"><i class="fa {{ widget.attrs.labelicon|default:"fa-cube" }}"></i> {{ widget.attrs.label }}</label>
+    <input class="form-control" type="{{ widget.type }}"
+          name="{{ widget.name }}"
+	  {% if widget.value != None %}
+	    value="{{ widget.value }}"
+	  {% endif %}
+	  {% include "django/forms/widgets/attrs.html" %}
+    />
+    {% if widget.attrs.helptext != None %}
+        <span class="help-block">{{ widget.attrs.helptext }}</span>
+    {% endif %}
+</div>
+

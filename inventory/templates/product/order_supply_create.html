@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+      <style>
+        table, th, td {
+            border: 1px solid black;
+            padding: 3px;
+            text-align: center
+        }
+        th{
+            background-color: #aaaaaa ;
+        }
+        table {
+            border-spacing: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="box" align="center">
+    <table class="table table-striped" align="center">
+        <form method="post" action="{% url 'inv_supply_create' %}">
+            {% csrf_token %}
+            <thead>
+            <tr>
+                <th scope="col"><label for="{{ form.subject.id_for_label }}">supplier:</label></th>
+                <th scope="col"><label for="{{ form.subject.id_for_label }}">product:</label></th>
+                <th scope="col"><label for="{{ form.subject.id_for_label }}">qty:</label></th>
+                <th scope="col"><label for="{{ form.subject.id_for_label }}">arrivedat:</label></th>
+                <th scope="col"><label for="{{ form.subject.id_for_label }}">arrived:</label></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ form.supplier }}
+                </td><td>{{ form.product }}
+            </td><td>{{ form.qty }}
+            </td><td>{{ form.arrivedat }}
+            </td><td>{{ form.arrived }}
+
+
+            </td>
+                <td>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </td>
+            </tr>
+ </tbody>
+        </form>
+    </table>
+</div>
+ <div class="box collapsed-box" align="center">
+    <!-- Iterate over object_list -->
+   <table >
+    {% for object in supply %}
+
+            <thead>
+            <tr>
+                <th scope="col">supplier:</th>
+                <th scope="col">product:</th>
+                <th scope="col">qty:</th>
+                <th scope="col">arrivedat:</th>
+                <th scope="col">arrived:</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ object.supplier }}
+                </td>
+                <td>{{ object.product }}
+                </td><td>{{ object.qty }}
+            </td><td>{{ object.arrivedat }}
+            </td><td>{{ object.arrived }}
+            </td>
+                <td><a href="{% url 'inv_supply_edit' object.id %}" >Edit</a></td>
+                <td><a href="{% url 'inv_supply_delete' object.id %}" >Delete</a></td>
+            </tr>
+            </tbody>
+
+{#        <!-- If objet_list is empty  -->#}
+        {% empty %}
+        <li>No objects yet.</li>
+    {% endfor %}
+ </table>
+</div>
+</body>
+</html>

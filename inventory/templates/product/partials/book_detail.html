@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            padding: 3px;
+        }
+        table {
+            border-spacing: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="box collapsed-box">
+    <!-- Iterate over object_list -->
+    {% for object in product %}
+        <table align="center">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Category:</th>
+                <th scope="col">subcategory:</th>
+                <th scope="col">productbrand:</th>
+                <th scope="col">productmodel:</th>
+                <th scope="col">productname:</th>
+                <th scope="col">productunit:</th>
+                <th scope="col">pricebuy:</th>
+                <th scope="col">pricesell:</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>{{ object.category }}
+                </td>
+                <td>{{ object.subcategory }}
+                </td><td>{{ object.productbrand }}
+            </td><td>{{ object.productmodel }}
+            </td><td>{{ object.productname }}
+            </td><td>{{ object.productunit }}
+            </td><td>{{ object.pricebuy }}
+            </td><td>{{ object.pricesell }}
+            </td>
+                <td>{{ object.id }} detail </td>
+            </tr>
+            </tbody>
+        </table>
+        <hr/>
+        <!-- If objet_list is empty  -->
+        {% empty %}
+        <li>No objects yet.</li>
+    {% endfor %}
+    <a href="{% url 'inv_product_add' %}">Add user</a>
+    </ul>
+</div>
+<!-- /.box-body -->
+
+</body>
+</html>

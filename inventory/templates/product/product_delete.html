@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <style>
+        table, th, td {
+            border: 1px solid black;
+            padding: 3px;
+            text-align: center
+        }
+        th{
+            background-color: #aaaaaa ;
+        }
+        table {
+            border-spacing: 5px;
+        }
+    </style>
+
+
+</head>
+<body>
+<div class="box collapsed-box" align="center">
+    <!-- Iterate over object_list -->
+<h4 align="center">Are you sure to delete</h4>
+  <table class="table table-striped">
+        <form method="post" action="{% url 'inv_product_delete' product.id %}">
+            {% csrf_token %}
+            <thead>
+            <tr>
+                <th scope="col"><label for="{{ form.subject.id_for_label }}">Category:</label></th>
+                <th scope="col"><label for="{{ form.subject.id_for_label }}">subcategory:</label></th>
+                <th scope="col"><label for="{{ form.subject.id_for_label }}">productbrand:</label></th>
+                <th scope="col"><label for="{{ form.subject.id_for_label }}">productmodel:</label></th>
+              <tr><td>{{ form.category }}
+                </td>
+                <td>{{ form.subcategory }}
+                </td><td>{{ form.productbrand }}
+            </td><td>{{ form.productmodel }}</tr>
+                <tr>
+                <th scope="col"><label for="{{ form.subject.id_for_label }}">productname:</label></th>
+                <th scope="col"><label for="{{ form.subject.id_for_label }}">productunit:</label></th>
+                <th scope="col"><label for="{{ form.subject.id_for_label }}">pricebuy:</label></th>
+                <th scope="col"><label for="{{ form.subject.id_for_label }}">pricesell:</label></th>
+{#                    <th></th><th></th>#}
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>{{ form.productname }}
+            </td><td>{{ form.productunit }}
+            </td><td>{{ form.pricebuy }}
+            </td><td>{{ form.pricesell }}
+            </td>
+                <td>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </td>
+            </tr>
+ </tbody>
+        </form>
+</table>
+
+
+</div>
+
+</body>
+</html>

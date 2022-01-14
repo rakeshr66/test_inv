@@ -1,0 +1,20 @@
+{% load  static %}
+<link rel="stylesheet" type="text/css" href="{% static "plugins/timepicker/bootstrap-timepicker.min.css" %}">
+<div class="bootstrap-timepicker">
+    <div class="form-group">
+        <label class="control-label" for="inputSuccess"><i
+                class="fa {{ widget.attrs.labelicon|default:"fa-cube" }}"></i> {{ widget.attrs.label }}</label>
+
+        <div class="input-group">
+            <input name="{{ widget.name }}"
+                    {% if widget.value != None %}
+                   value="{{ widget.value }}"
+                    {% endif %} type="{{ widget.type }}" class="form-control pull-right"
+                   id="{{ widget.attrs.id|default:"timepicker" }}" {% include "django/forms/widgets/attrs.html" %}>
+            <div class="input-group-addon">
+                <i class="fa fa-clock-o"></i>
+            </div>
+        </div>
+        <!-- /.input group -->
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+<form class="form" action="{% url 'inv_user_edit' object.id %} " method="get">{% csrf_token %}
+    <div class="card border-info ml-5 mt-2" style="max-width: 18rem;">
+        <div class="card-header ">{{ object.name }}</div>
+        <p class="card-text ml-3 mt-3">{{ object.user }}</p><hr>
+        <p class="card-text ml-3 mb-2">{{ object.current_address }}</p><hr>
+        <p class="card-text ml-3 mb-2">{{ object.mobile }}</p><hr>
+        <p class="card-text ml-3 mb-2">{{ object.type }}</p><hr>
+        <p class="card-text ml-3 mb-4">{{ stat }} </p></div><hr>
+    <div class="mt-2 ml-5">
+<button class="btn btn-primary" type="submit" value="Submit">Edit</button>
+    <a class="btn btn-danger" href="{% url 'inv_user_del' object.pk %}">Delete</a>
+</div>
+</form>
+</body>
+</html>

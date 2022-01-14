@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="box collapsed-box">
+    <!-- Iterate over object_list -->
+    {% for object in object_list %}
+        <!-- Display Objects -->
+            <li><a href="{% url 'inv_user_details' object.id %} ">{{ object.subcategoryname }}</a></li>
+
+            <li><a href="{% url 'inv_subcateg_del' object.id %} ">Delete</a></li>
+        <hr/>
+    <!-- If objet_list is empty  -->
+    {% empty %}
+        <li>No objects yet.</li>
+    {% endfor %}
+<li><a href="{% url 'inv_subcateg_add' %} ">Add</a></li>
+</ul>
+    </div>
+
+</body>
+</html>

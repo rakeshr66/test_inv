@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<form action="{% url 'inventory_login' %}" method="post">
+    <input type="hidden" name="next" value="{{ redirect_to_url }}"/>
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+    <div>
+        <div class="col-xs-8">
+            <div class="checkbox icheck">
+                <label>
+                    <p class="text-danger">{{ error }}</p>
+                </label>
+            </div>
+        </div>
+    </div>
+</form>
+<body>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+</body>
+</html>

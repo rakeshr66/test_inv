@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+      <style>
+        table, th, td {
+            border: 1px solid black;
+            padding: 3px;
+            text-align: center
+        }
+        th{
+            background-color: #aaaaaa ;
+        }
+        table {
+            border-spacing: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box" align="center">
+    <b>Are you sure</b>
+    <table class="table table-striped" align="center">
+        <form method="post" action="{% url 'inv_supply_delete' supply.id %}">
+            {% csrf_token %}
+            <thead>
+            <tr>
+                <th scope="col"><label for="{{ form.subject.id_for_label }}">supplier:</label></th>
+                <th scope="col"><label for="{{ form.subject.id_for_label }}">product:</label></th>
+                <th scope="col"><label for="{{ form.subject.id_for_label }}">qty:</label></th>
+                <th scope="col"><label for="{{ form.subject.id_for_label }}">arrivedat:</label></th>
+                <th scope="col"><label for="{{ form.subject.id_for_label }}">arrived:</label></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ supply.supplier }}
+                </td><td>{{ supply.product }}
+            </td><td>{{ supply.qty }}
+            </td><td>{{ supply.arrivedat }}
+            </td><td>{{ supply.arrived }}
+
+
+            </td>
+                <td>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </td>
+            </tr>
+ </tbody>
+        </form>
+    </table>
+</div>
+</body>
+</html>
