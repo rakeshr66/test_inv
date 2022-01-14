@@ -1,1 +1,1 @@
-web: gunicorn inventorymanagement.wsgi
+web: gunicorn inventorymanagement.wsgi --log-file -
